@@ -3,7 +3,7 @@ from colorthief import ColorThief
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-root = r'D:\A.I\Remove_Background\data\inside'
+root = r'D:\\A.I\\Remove_Background\\data\\interior'
 image_list = os.listdir(root)
 count = 0
 for image in tqdm(image_list, total=len(image_list)):
@@ -17,7 +17,7 @@ for image in tqdm(image_list, total=len(image_list)):
     except:
         pass
 
-root = r'D:\A.I\Remove_Background\data\outside'
+root = r'D:\A.I\\Remove_Background\\data\\exterior'
 image_list = os.listdir(root)
 count = 0
 
