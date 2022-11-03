@@ -7,11 +7,11 @@ from multiprocessing import Pool
 from tqdm import tqdm
 
 
-def process(input, count, interior_exterior):
+def process(input_path, count, interior_exterior):
     if interior_exterior == 'exterior':
-        output_path = fr'..\\Data\\Output\\exterior\\output{count}.png'
+        output_path = f'Data\\Output\\exterior\\output{count}.png'
     else:
-        output_path = fr'..\\Data\\Output\\interior\\output{count}.png'
+        output_path = f'Data\\Output\\interior\\output{count}.png'
     with open(input_path, 'rb') as i:
         with open(output_path, 'wb') as o:
             o.write(rembg.bg.remove(i.read()))
@@ -31,14 +31,14 @@ def process(input, count, interior_exterior):
     return stat
 
 def interior():
-    root = r'..\\Data\\Input\\interior'
+    root = r'Data\\Input\\interior'
     interior_exterior = root.split('\\')[-1]
     count = 0
-    for input in tqdm([file for file in os.listdir(file_path)], total=len(os.listdir(file_path))):
+    for input in tqdm([file for file in os.listdir(root)], total=len(os.listdir(root))):
         try:
             count += 1
             input = os.path.join(root, input)
-            process_outside(input, count, interior_exterior)
+            process(input, count, interior_exterior)
         except:
             pass
 
@@ -47,12 +47,12 @@ def exterior():
     root = r'..\\Data\\Input\\exterior'
     interior_exterior = root.split('\\')[-1]
     count = 0
-    for input in tqdm([file for file in os.listdir(file_path)], total=len(os.listdir(file_path))):
+    for input in tqdm([file for file in os.listdir(root)], total=len(os.listdir(root))):
         try:
             count += 1
-            input = os.path.join(file_path, input)
+            input = os.path.join(root, input)
 
-            process_outside(input, count, interior_exterior)
+            process(input, count, interior_exterior)
         except:
             pass
 
