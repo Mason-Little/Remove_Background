@@ -3,6 +3,17 @@ from colorthief import ColorThief
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
+# Load Data
+
+# Background Kept (Default)
+interior = '..\\Data\\Input\\interior'
+exterior = '..\\Data\\Input\\exterior'
+
+#Background Removed
+# interior = '..\\Data\\Output\\interior'
+# exterior = '..\\Data\\Output\\exterior'
+
+
 root = r'D:\\A.I\\Remove_Background\\data\\interior'
 image_list = os.listdir(root)
 count = 0
