@@ -1,9 +1,7 @@
 import os
-import random
 import rembg
 import cv2
 from PIL import Image, ImageStat
-from multiprocessing import Pool
 from tqdm import tqdm
 
 
